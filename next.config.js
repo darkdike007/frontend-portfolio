@@ -20,8 +20,6 @@ const nextConfig = {
     }
     return config;
   },
-  output: 'export',
-  distDir: 'dist'
 }
 
 

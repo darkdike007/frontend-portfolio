@@ -5,10 +5,8 @@ import Head from "next/head";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
-export default function project({ dataProject }) {
+export default function Home({dataProject}) {
   const [openModal, setOpenModal] = useState<string | undefined>();
-  
-  const projectData = dataProject.data;
   return (
     <>
       <Head>
@@ -61,85 +59,81 @@ export default function project({ dataProject }) {
           </h2>
           <div className="flex flex-wrap gap-3 p-5">
             {projectData.map((data, index) => (
-              <React.Fragment key={index}>
-                <div className="w-full md:w-[calc(50%-6px)] lg:w-[calc(33.33333%-8px)]">
-                  <Card
-                    onClick={() => setOpenModal("modal1")}
-                    className="cursor-pointer"
-                    imgSrc={data.thumbnailProject}
-                  >
-                    <h5 className="text-2xl font-bold tracking-tight truncate text-slate-800 dark:text-white">
-                      {data.namaProject}
-                    </h5>
-                    <p className="text-slate-500 dark:text-gray-400 text-justify line-clamp-3">
-                      {data.deskripsi}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {data.tagProject.map((data, index) => (
-                        <Badge color="info" key={index}>
-                          {data}
-                        </Badge>
-                      ))}
-                    </div>
-                  </Card>
-                </div>
-                <Modal
-                  dismissible={true}
-                  show={openModal === "modal1"}
-                  onClose={() => setOpenModal(undefined)}
-                  size="5xl"
-                  className="!inset-0 !h-screen modal-box"
-                >
-                  <Modal.Header>
-                    <p className="mb-2">{data.namaProject}</p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {data.tagProject.map((data, index) => (
-                        <Badge color="info" key={index}>
-                          {data}
-                        </Badge>
-                      ))}
-                    </div>
-                  </Modal.Header>
-                  <Modal.Body className="portrait:h-[calc(80vh-35vw)] landscape:h-[calc(100vh-30vw)] lg:!h-[calc(100vh-20vw)] overflow-y-scroll">
-                    <h3 className="font-semibold text-slate-700 text-lg md:text-xl">
-                      Deskripsi
-                    </h3>
-                    <p className="text-base md:text-lg leading-relaxed mb-5 text-justify text-slate-500 dark:text-gray-400 whitespace-pre-line">
-                      {data.deskripsi}
-                    </p>
-                    <h3 className="font-semibold text-slate-700 text-lg md:text-xl">
-                      Screenshot
-                    </h3>
-                    <div className="mt-5 flex flex-wrap gap-3 justify-center">
-                      {data.screenshoots.map((data, index) => (
-                        <div className="w-full md:w-[calc(50%-6px)]">
-                          <h2 className="font-semibold text-slate-700 text-base md:text-lg">
-                            {data.title}
-                          </h2>
-                          <p className="text-slate-700 text-sm md:text-base mb-4">
-                            {data.deskripsi}
-                          </p>
-                          <img
-                            src={data.img}
-                            alt={data.title}
-                            className="shadow-xl rounded"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button
-                      color="gray"
-                      onClick={() => setOpenModal(undefined)}
+                <React.Fragment key={index}>
+                  <div className="w-full md:w-[calc(50%-6px)] lg:w-[calc(33.33333%-8px)]">
+                    <Card
+                      onClick={() => setOpenModal("modal1")}
+                      className="cursor-pointer"
+                      imgSrc={data.thumbnailProject}
                     >
-                      Oke
-                    </Button>
-                  </Modal.Footer>
-                </Modal>
-              </React.Fragment>
-            ))}
+                      <h5 className="text-2xl font-bold tracking-tight truncate text-slate-800 dark:text-white">
+                        {data.namaProject}
+                      </h5>
+                      <p className="text-slate-500 dark:text-gray-400 text-justify line-clamp-3">
+                        {data.deskripsi}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {data.tagProject.map((data, index) => (
+                          <Badge color="info" key={index}>
+                            {data}
+                          </Badge>
+                        ))}
+                      </div>
+                    </Card>
+                  </div>
+                  <Modal
+                    dismissible={true}
+                    show={openModal === "modal1"}
+                    onClose={() => setOpenModal(undefined)}
+                    size="5xl"
+                    className="!inset-0 !h-screen modal-box"
+                  >
+                    <Modal.Header>
+                      <p className="mb-2">{data.namaProject}</p>
+
+                      <div className="flex flex-wrap gap-2">
+                        {data.tagProject.map((data, index) => (
+                          <Badge color="info" key={index}>
+                            {data}
+                          </Badge>
+                        ))}
+                      </div>
+                    </Modal.Header>
+                    <Modal.Body className="portrait:h-[calc(80vh-35vw)] landscape:h-[calc(100vh-30vw)] lg:!h-[calc(100vh-20vw)] overflow-y-scroll">
+                      <h3 className="font-semibold text-slate-700 text-lg md:text-xl">
+                        Deskripsi
+                      </h3>
+                      <p className="text-base md:text-lg leading-relaxed mb-5 text-justify text-slate-500 dark:text-gray-400 whitespace-pre-line">
+                        {data.deskripsi}
+                      </p>
+                      <h3 className="font-semibold text-slate-700 text-lg md:text-xl">
+                        Screenshot
+                      </h3>
+                      <div className="mt-5 flex flex-wrap gap-3 justify-center">
+                        {data.screenshoots.map((data, index) => (
+                          <div className="w-full md:w-[calc(50%-6px)]">
+                            <h2 className="font-semibold text-slate-700 text-base md:text-lg">
+                              {data.title}
+                            </h2>
+                            <p className="text-slate-700 text-sm md:text-base mb-4">
+                              {data.deskripsi}
+                            </p>
+                            <img src={data.img} alt={data.title} className="shadow-xl rounded" />
+                          </div>
+                        ))}
+                      </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button
+                        color="gray"
+                        onClick={() => setOpenModal(undefined)}
+                      >
+                        Oke
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                </React.Fragment>
+              ))}
           </div>
         </div>
       </div>
@@ -147,9 +141,10 @@ export default function project({ dataProject }) {
   );
 }
 
-project.getInitialProps =  async (ctx) => {
+export async function getServerSideProps() {
   const API_CODE = "k0rY64IVQhjIN73JdOys8vqCNdcur4MEBjeLlwLR";
   const URL_SERVER = "http://127.0.0.1:8000";
+
 
   const resProject = await fetch(`${URL_SERVER}/api/project`, {
     method: "GET",
@@ -164,6 +159,5 @@ project.getInitialProps =  async (ctx) => {
   const dataProject = await resProject.json();
 
   // Pass data to the page via props
-  return { dataProject: dataProject };
-};
-
+  return { props: { dataProject } };
+}

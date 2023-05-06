@@ -245,7 +245,7 @@ export default function Home({
   );
 }
 
-Home.getInitialProps =  async (ctx) => {
+export async function getServerSideProps() {
   const API_CODE = "k0rY64IVQhjIN73JdOys8vqCNdcur4MEBjeLlwLR";
   const URL_SERVER = "http://127.0.0.1:8000";
 
@@ -294,60 +294,6 @@ Home.getInitialProps =  async (ctx) => {
   const dataDeskripsiDiri = await resDeskripsiDiri.json();
   const dataProject = await resProject.json();
 
-  
-  return { dataKeahlian: dataKeahlian, dataSkill: dataSkill, dataDeskripsiDiri: dataDeskripsiDiri, dataProject: dataProject };
-
-};
-
-// export async function getStaticProps() {
-//   const API_CODE = "k0rY64IVQhjIN73JdOys8vqCNdcur4MEBjeLlwLR";
-//   const URL_SERVER = "http://127.0.0.1:8000";
-
-//   const resKeahlian = await fetch(`${URL_SERVER}/api/keahlian`, {
-//     method: "GET",
-//     cache: "no-store",
-//     headers: {
-//       Authorization: `Bearer ${API_CODE}`,
-//       Accept: `application/json`,
-//       "Content-Type": "application/json",
-//     },
-//   });
-
-//   const resSkill = await fetch(`${URL_SERVER}/api/skill`, {
-//     method: "GET",
-//     cache: "no-store",
-//     headers: {
-//       Authorization: `Bearer ${API_CODE}`,
-//       Accept: `application/json`,
-//       "Content-Type": "application/json",
-//     },
-//   });
-
-//   const resDeskripsiDiri = await fetch(`${URL_SERVER}/api/deskripsi-diri`, {
-//     method: "GET",
-//     cache: "no-store",
-//     headers: {
-//       Authorization: `Bearer ${API_CODE}`,
-//       Accept: `application/json`,
-//       "Content-Type": "application/json",
-//     },
-//   });
-
-//   const resProject = await fetch(`${URL_SERVER}/api/project`, {
-//     method: "GET",
-//     cache: "no-store",
-//     headers: {
-//       Authorization: `Bearer ${API_CODE}`,
-//       Accept: `application/json`,
-//       "Content-Type": "application/json",
-//     },
-//   });
-
-//   const dataKeahlian = await resKeahlian.json();
-//   const dataSkill = await resSkill.json();
-//   const dataDeskripsiDiri = await resDeskripsiDiri.json();
-//   const dataProject = await resProject.json();
-
-//   // Pass data to the page via props
-//   return { props: { dataKeahlian, dataSkill, dataDeskripsiDiri, dataProject } };
-// }
+  // Pass data to the page via props
+  return { props: { dataKeahlian, dataSkill, dataDeskripsiDiri, dataProject } };
+}
