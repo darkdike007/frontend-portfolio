@@ -149,7 +149,7 @@ export async function getServerSideProps() {
   const URL_SERVER = "https://hoseadikeportfolio.redagro.my.id";
 
 
-  const resProject = await fetch(`${URL_SERVER}/api/project`, {
+  const resProject = await fetch(`${URL_SERVER}/api/project/all`, {
     method: "GET",
     cache: "no-store",
     headers: {

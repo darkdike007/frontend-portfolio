@@ -279,7 +279,7 @@ export async function getServerSideProps() {
     },
   });
 
-  const resProject = await fetch(`${URL_SERVER}/api/project`, {
+  const resProject = await fetch(`${URL_SERVER}/api/project/new`, {
     method: "GET",
     cache: "no-store",
     headers: {
