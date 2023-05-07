@@ -247,7 +247,7 @@ export default function Home({
 
 export async function getServerSideProps() {
   const API_CODE = "k0rY64IVQhjIN73JdOys8vqCNdcur4MEBjeLlwLR";
-  const URL_SERVER = "http://127.0.0.1:8000";
+  const URL_SERVER = "https://hoseadikeportfolio.redagro.my.id";
 
   const resKeahlian = await fetch(`${URL_SERVER}/api/keahlian`, {
     method: "GET",
