@@ -157,7 +157,7 @@ export default function Home({
                 <React.Fragment key={index}>
                   <div className="w-full md:w-[calc(50%-6px)] lg:w-[calc(33.33333%-8px)]">
                     <Card
-                      onClick={() => setOpenModal("modal1")}
+                      onClick={() => setOpenModal(`modal${index}`)}
                       className="cursor-pointer"
                       imgSrc={data.thumbnailProject}
                     >
@@ -178,7 +178,7 @@ export default function Home({
                   </div>
                   <Modal
                     dismissible={true}
-                    show={openModal === "modal1"}
+                    show={openModal === `modal${index}`}
                     onClose={() => setOpenModal(undefined)}
                     size="5xl"
                     className="!inset-0 !h-screen modal-box"
