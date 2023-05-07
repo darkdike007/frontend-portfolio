@@ -7,6 +7,9 @@ const nunito = Nunito({ subsets: ["latin"] });
 
 export default function Home({dataProject}) {
   const [openModal, setOpenModal] = useState<string | undefined>();
+  
+  const projectData = dataProject.data;
+
   return (
     <>
       <Head>
